@@ -2,6 +2,7 @@ package com.ksb.covid_19admin;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -65,7 +66,14 @@ public class AdminActivity extends AppCompatActivity {
        // imageCompression = new ImageCompression(this);
         // mProgress = new ProgressDialog(this);
 
-        mPostDatabase = FirebaseDatabase.getInstance().getReference().child("Admin_Messages");
+        SharedPreferences sharedPreferences = this.getSharedPreferences("com.ksb.covid_19admin",MODE_PRIVATE);
+        String postalCode = sharedPreferences.getString("postalCode",null);
+        if(postalCode!=null)
+            mPostDatabase = FirebaseDatabase.getInstance().getReference().child("Admin_Messages").child(postalCode);
+        else
+            mPostDatabase = FirebaseDatabase.getInstance().getReference().child("Admin_Messages").child("00000");
+
+        Toast.makeText(this, "Postal Code :: "+postalCode, Toast.LENGTH_SHORT).show();
 
         mImage.setOnClickListener(new View.OnClickListener() {
             @Override
