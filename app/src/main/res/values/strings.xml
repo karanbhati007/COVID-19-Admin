@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">COVID-19 Admin</string>
+    <string name="login_to_continue">Login to continue</string>
+    <string name="enter_title">Enter Title</string>
+    <string name="enter_description">Enter Description</string>
+    <string name="covid_19_helper_admin_app">COVID-19 Helper Admin APP</string>
+    <string name="sign_in">Sign In</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+</resources>
